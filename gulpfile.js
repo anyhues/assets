@@ -18,8 +18,8 @@ tasks.forEach(service => service.load(gulp, config))
 
 gulp.task('run', sequence(['watch']))
 
-gulp.task('deploy', ['prod-build'], () => {
-  gulp.src(config.get('buildGlob'))
+gulp.task('deploy', ['dist'], () => {
+  gulp.src(config.get('distGlob'))
   .pipe(ghPages().on('error', gutil.log))
   .pipe(print())
 })
