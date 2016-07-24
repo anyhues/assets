@@ -20,9 +20,6 @@ gulp.task('run', sequence(['watch']))
 
 gulp.task('deploy', ['prod-build'], () => {
   gulp.src(config.get('buildGlob'))
-  .pipe(ghPages({
-    remoteUrl: 'git@github.com:anyhues/anyhues.github.io.git',
-    branch: 'master'
-  }).on('error', gutil.log))
+  .pipe(ghPages().on('error', gutil.log))
   .pipe(print())
 })
