@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp watch & gulp server",
     "build": "gulp build",
     "dist": "NODE_ENV=production gulp dist",
     "deploy": "NODE_ENV=production gulp deploy",
@@ -33,6 +34,7 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.8",
     "ionicons": "^3.0.0",
+    "live-server": "^1.0.0",
     "picturefill": "^3.0.2",
     "ress": "^1.1.1"
   }
