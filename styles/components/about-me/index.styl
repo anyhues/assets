@@ -1,0 +1,29 @@
+@require '../markdown'
+
+.about-me
+  min-height 300px
+  background-color rgb(110, 110, 110)
+  position relative
+  padding 7rem 5rem
+  color #fff
+
+  @extend .markdown
+
+  h2
+    font-size 1.5rem
+    text-transform uppercase
+    font-family modern_sansregular, 'Helvetica Neue', Helvetica, Arial, sans-serif
+    border-bottom 2px solid #fff
+
+  .avatar
+    width 200px
+    height 200px
+    position absolute
+    top 0
+    left 50%
+    transform translate(-50%, -50%)
+    background-image url(../images/joaquin.jpg)
+    background-size cover
+    background-position center center
+    border-radius 100%
+    border 10px solid #fff
