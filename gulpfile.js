@@ -20,6 +20,9 @@ gulp.task('run', sequence(['watch']))
 
 gulp.task('deploy', ['dist'], () => {
   gulp.src(config.get('distGlob'))
-  .pipe(ghPages().on('error', gutil.log))
+  .pipe(ghPages({
+    remoteUrl: 'git@github.com:niehues-assets/niehues-assets.github.io.git',
+    branch: 'master'
+  }).on('error', gutil.log))
   .pipe(print())
 })
