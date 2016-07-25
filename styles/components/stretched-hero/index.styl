@@ -1,4 +1,9 @@
 @require '../spinner'
+
+bp-small = 400px
+bp-medium = 900px
+bp-large = 1280px
+
 .overlay
   background-color rgba(94, 78, 44, 0.36)
   position absolute
@@ -58,3 +63,16 @@
     top 50%
     left 50%
     transform translate(-50%, -50%)
+
++up-to(bp-medium)
+  .meta
+    .meta-about-me
+      display none
+
+  .stretched-hero
+    .central-teaser
+      h1
+        font-size 8vw
+
+      p.sub-title
+        font-size 4.5vw
