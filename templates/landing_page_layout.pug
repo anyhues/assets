@@ -3,7 +3,7 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     title Document
-    link(rel='stylesheet' href='http://localhost:8235/css/main.css')
+    link(rel='stylesheet' href=ASSET_HOST + "/css/main.css")
 
     //- block head
   body
@@ -18,9 +18,9 @@ html(lang="en")
             a impressum
 
       picture
-        source(srcset="/images/landing-page-bg-1380.png" media="(min-width: 1200px)")
-        source(srcset="/images/landing-page-bg-1024.png" media="(min-width: 640px)")
-        img( src="/images/landing-page-bg-640.png" alt="")
+        source(srcset=ASSET_HOST + "/images/landing-page-bg-1380.png" media="(min-width: 1200px)")
+        source(srcset=ASSET_HOST + "/images/landing-page-bg-1024.png" media="(min-width: 640px)")
+        img( src=ASSET_HOST + "/images/landing-page-bg-640.png" alt="")
 
       .central-teaser
         h1 Andreas Niehues
