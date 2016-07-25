@@ -1,8 +1,9 @@
 @require 'teaser.styl'
 
 .teasers
-  // overflow hidden
+  overflow hidden
   clear-fix()
+  margin-bottom 3rem
 
   li
     margin-bottom 1rem
@@ -22,6 +23,9 @@
         &:nth-child(even)
           margin-right 0
           clear-fix()
+
+    &.teaser-count-3 li:last-of-type
+      transform translateX(50%)
 
   +from(bp-large)
     li
