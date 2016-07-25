@@ -2,7 +2,9 @@ mixin teaser(klass, label, link)
   li(class="teaser teaser-" + klass)
     a(href=link)
       .img-container
-      span.label= label
+      span.label
+        span.text= label
+        button.more.icon.ion-home Mehr Informationen
 
 
 mixin teaser-list(teasers)
@@ -15,3 +17,5 @@ mixin teaser-list(teasers)
           +teaser(teaser, 'Familientherapie', '#')
         when 'single'
           +teaser(teaser, 'Einzeltherapie', '#')
+        when 'corporations'
+          +teaser(teaser, 'Coaching', '#')

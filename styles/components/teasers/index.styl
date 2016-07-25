@@ -1,7 +1,12 @@
 @require 'teaser.styl'
 
 .teasers
-  overflow hidden
+  // overflow hidden
+  &:after
+    content ''
+    display table
+    clear both
+
 
   &.teaser-count-2 li
     width 48%
@@ -13,6 +18,13 @@
   &.teaser-count-3 li
     width 31%
     margin-right 3.45%
+
+    &:last-of-type
+      margin-right 0
+
+  &.teaser-count-4 li
+    width 23%
+    margin-right 2.66%
 
     &:last-of-type
       margin-right 0
