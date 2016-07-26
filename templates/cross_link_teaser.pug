@@ -1,10 +1,9 @@
 mixin teaser(klass, label, link)
   li(class="teaser teaser-" + klass)
     a(href=link)
+      .overlay
       .img-container
-      span.label
-        span.text= label
-        span.more.icon.ion-home Mehr Informationen
+      span.label= label
 
 
 mixin teaser-list(teasers)
@@ -12,10 +11,10 @@ mixin teaser-list(teasers)
     each teaser in teasers
       case teaser
         when 'couples'
-          +teaser(teaser, 'Paartherapie', '#')
+          +teaser(teaser, 'Paare', COUPLES_HOST)
         when 'family'
-          +teaser(teaser, 'Familientherapie', '#')
+          +teaser(teaser, 'Familien', '#')
         when 'single'
-          +teaser(teaser, 'Einzeltherapie', '#')
+          +teaser(teaser, 'Singles', '#')
         when 'corporations'
-          +teaser(teaser, 'Coaching', '#')
+          +teaser(teaser, 'Organisationen', '#')

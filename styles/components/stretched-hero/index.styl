@@ -1,14 +1,5 @@
 @require '../spinner'
 
-.overlay
-  background-color rgba(94, 78, 44, 0.36)
-  position absolute
-  top 0
-  right 0
-  bottom 0
-  left 0
-  z-index 999
-
 .stretched-hero
   background-color rgb(159, 212, 193)
 
@@ -31,25 +22,31 @@
 
   .central-teaser
     position absolute
-    top 50%
+    top 36%
     left 50%
     transform translate(-50%, -50%)
     width 90%
     color #fff
     z-index 1000
+    text-align center
 
     h1
       text-align center
       font-family modern_sansregular, 'Helvetica Neue', Helvetica, Arial, sans-serif
       font-size 4rem
       letter-spacing .3rem
+      margin-bottom 1rem
 
     p.sub-title
+      display inline
       margin-top 2rem
       font-family JaapokkiRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif
       font-size 2rem
       text-align center
-      // background-color rgba(37, 37, 37, 0.66)
+      background-color text-highlight
+      box-shadow 1rem 0 0 text-highlight, -1rem 0 0 text-highlight
+      line-height 1.9
+      padding-top .5rem
 
   img
     min-height 100%
@@ -72,3 +69,4 @@
 
       p.sub-title
         font-size 4.5vw
+        line-height 2
