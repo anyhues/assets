@@ -1,9 +1,21 @@
-.contact
+.contact.area#contact
+  h2 Kontakt
+
   .form
-    label(for="email=address") E-Mail
-    input(type="email" id="email-address")
+    label(for="email-address") E-Mail
+    input#email-address(type="email")
+
+    label(for="content") Nachricht
+    textarea#content
+
+    .action
+      input(type="submit" value="Absenden")
+
   address.address
+    h3 Anschrift
     .name Systemisch-integrative Praxis
     .street Planckstraße 115
     .city 45147 Essen-Holsterhausen
+
+    h3 Telefon
     a(href="tel:020112345567889") 0201-12345567889
