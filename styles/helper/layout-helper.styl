@@ -1,0 +1,22 @@
+expander()
+  display block
+  position absolute
+  bottom 0
+  top 0
+  width 100%
+
+expanded-bg(color)
+  background-color color
+  position relative
+
+  &:before, &:after
+    content ''
+    background-color color
+    expander()
+    z-index -1
+
+  &:before
+    right 100%
+
+  &:after
+    left 100%

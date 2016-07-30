@@ -1,40 +1,62 @@
 @require '../markdown'
 
-about-me-bg = #212d28
-
-.about-me-wrapper
-  padding-top 4rem
+card-border-color = rgb(238, 238, 238)
+.card
+  background-color #fff
+  border 1px solid card-border-color
+  border-bottom 2px solid card-border-color
+  border-right 2px solid card-border-color
+  padding 1.5rem
+  // box-shadow 0 0 10px rgba(152, 152, 152, 0.49)
+  // border-radius 3px
 
 .about-me
-  min-height 300px
-  position relative
-  padding 7rem 2rem
-  color #fff
-  margin-top 5rem
-  background-color about-me-bg
-  background-image url(../images/blurred-bg.png)
-  background-size 100%
+  padding 3rem 0
+  expanded-bg(#f4f4f4)
+  // clear-fix()
 
-  +from(bp-medium)
-    padding 7rem 5rem
+  header
+    h2
+      margin-bottom 2rem
 
+
+.background, .reference-list
+  @extend .card
   @extend .markdown
+  margin-bottom 3rem
+  position relative
 
-  h2
-    font-size 1.5rem
-    text-transform uppercase
-    font-family modern_sansregular, 'Helvetica Neue', Helvetica, Arial, sans-serif
-    border-bottom 2px solid #fff
-
-  .avatar
-    width 200px
-    height 200px
+  &:before
+    content ''
+    // border-top 1px solid rgb(219, 219, 219)
+    height 1px
+    background-color rgb(230, 230, 230)
+    display block
     position absolute
-    top 0
+    bottom -1.5rem
     left 50%
-    transform translate(-50%, -50%)
-    background-image url(../images/joaquin.jpg)
-    background-size cover
-    background-position center center
-    border-radius 100%
-    border 10px solid #fff
+    width 50%
+    transform translate(-50%, 2px)
+
+  &:last-of-type:before
+    display none
+
+
+  h3
+    margin-bottom 1rem
+
+  li
+    list-style-type none
+
++from(bp-large)
+  .reference-list
+    width 49%
+    float left
+    &:before
+      display none
+
+    &:first-of-type
+      margin-right 1.9%
+
+  .references
+    clear-fix()
