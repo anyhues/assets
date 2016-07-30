@@ -6,7 +6,12 @@
   font-style normal
   font-size 1.5rem
 
+  p
+    margin-bottom .3rem
+    line-height 1.5
+
   h3
+    font-family open_sansregular, 'Helvetica Neue', Helvetica, arial, sans-serif
     font-size 1.5rem
     margin-bottom .5rem
 
@@ -41,6 +46,46 @@
 
   .action
     text-align right
+
+.error-message
+  color link-highlight-color
+  border 1px solid link-highlight-color
+  padding .5rem 1rem
+  margin-bottom 1rem
+  padding-left 4.5rem
+  position relative
+
+  &:before
+    @extend .ion-ios-bug:before
+    position absolute
+    left 1rem
+    top 50%
+    font-size 3rem
+    transform translateY(-50%)
+
+.success-message
+  color rgb(71, 219, 73)
+  border 1px solid rgb(71, 219, 73)
+  padding 1rem 1rem
+  margin-bottom 1rem
+  padding-left 4rem
+  position relative
+
+  &:before
+    @extend .ion-ios-paper-plane:before
+    position absolute
+    left 1rem
+    top 50%
+    font-size 2rem
+    transform translateY(-50%)
+
++up-to(bp-small)
+  .address
+    h3
+      font-size 5vw
+
+    .tellink, p
+      font-size 4vw
 
 +from(bp-medium)
   .contact

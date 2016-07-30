@@ -1,21 +1,26 @@
 .contact.area#contact
   h2 Kontakt
 
-  .form
+  form.form.contact-form
+    .success-message(style="display: none;") Ihre Nachricht wurde verschickt.
+    .error-message(style="display: none;") Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut oder versuchen Sie telefonischen Kontakt aufzunehmen.
+
     label(for="email-address") E-Mail
-    input#email-address(type="email")
+    input#email-address(type="email" name="email" required="true")
 
     label(for="content") Nachricht
-    textarea#content
+    textarea#content(name="content" required="true")
+    input(type="hidden" name="_format" value="plain")
+    input(type="text" name="_gotcha" style="display:none")
 
     .action
-      input(type="submit" value="Absenden")
+      input.contact-submit(type="submit" value="Absenden")
 
   address.address
     h3 Anschrift
-    .name Systemisch-integrative Praxis
-    .street Planckstraße 115
-    .city 45147 Essen-Holsterhausen
+    p.name Systemisch-integrative Praxis
+    p.street Planckstraße 115
+    p.city 45147 Essen-Holsterhausen
 
     h3 Telefon
-    a(href="tel:020112345567889") 0201-12345567889
+    a.tellink(href="tel:020112345567889") 0201-12345567889
