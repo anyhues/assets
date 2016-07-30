@@ -1,6 +1,7 @@
 @require 'teaser.styl'
 
 .teasers
+  container()
   overflow hidden
   clear-fix()
   margin-bottom 3rem
@@ -11,6 +12,9 @@
   +from(bp-medium)
     li
       float left
+
+  +up-to(bp-medium)
+    margin-bottom 1.5rem
 
   +between(bp-medium, bp-large)
     &.teaser-count-2, &.teaser-count-3, &.teaser-count-4

@@ -10,10 +10,15 @@ card-border-color = rgb(238, 238, 238)
   // box-shadow 0 0 10px rgba(152, 152, 152, 0.49)
   // border-radius 3px
 
+.about-me-wrapper
+  background-color #f4f4f4
+
 .about-me
   padding 3rem 0
-  expanded-bg(#f4f4f4)
+  // expanded-bg(#f4f4f4)
   // clear-fix()
+  container()
+
 
   header
     h2
@@ -47,6 +52,11 @@ card-border-color = rgb(238, 238, 238)
 
   li
     list-style-type none
+
+  +up-to(bp-small)
+    li, p
+      font-size 4vw
+      line-height 1.6
 
 +from(bp-large)
   .reference-list
