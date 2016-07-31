@@ -20,3 +20,33 @@
     &:hover
       background-color #fff
       color #000
+
++up-to(bp-small)
+  .meta
+    .meta-about-me
+      display none
+
+    .meta-practice
+      display none
+
++up-to(bp-medium)
+  .meta
+    .meta-about-me
+      display none
+
+.content .meta
+  container()
+  position static
+
+  li
+    margin-left 0
+
+  li, a
+    display block
+
+  a
+    color #000
+
+    &:hover
+      background-color link-highlight-color
+      color #fff

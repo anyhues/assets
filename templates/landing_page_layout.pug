@@ -1,66 +1,18 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    title Document
-    link(rel='stylesheet' href=ASSET_HOST + "/css/main.css")
+extends /base_layout
 
-    //- block head
-  body
-    include cross_link_teaser
-    header.main-header
-      nav.meta
-        ul
-          li.meta-about-me
-            a(href="#about-me") über mich
-          li.meta-practice
-            a(href="#practice") praxis
-          li
-            a(href="#contact") kontakt
-          li
-            a(href="#imprint") impressum
+block body
+  header.main-header
+    include meta_nav
 
-      picture
-        source(srcset=ASSET_HOST + "/images/landing-page-bg-1380.png" media="(min-width: 1200px)")
-        source(srcset=ASSET_HOST + "/images/landing-page-bg-1024.png" media="(min-width: 640px)")
-        img( src=ASSET_HOST + "/images/landing-page-bg-640.png" alt="")
+    picture
+      source(srcset=ASSET_HOST + "/images/landing-page-bg-1380.png" media="(min-width: 1200px)")
+      source(srcset=ASSET_HOST + "/images/landing-page-bg-1024.png" media="(min-width: 640px)")
+      img( src=ASSET_HOST + "/images/landing-page-bg-640.png" alt="")
 
-      .central-teaser
-        h1 Andreas Niehues
-        p.sub-title Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik
+    .central-teaser
+      h1 Andreas Niehues
+      p.sub-title Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik
 
 
-    section.content
-      block content
-
-      include shared_info
-
-    script(src="https://code.jquery.com/jquery-3.1.0.min.js")
-    script.
-      var host = "pra!?x!is" + "!!-nie!!" + "!hues??" + ".??de"
-      var user = "!i!n?f?o"
-      var address = user+"@"+host
-
-      $('.contact-form').on('submit', function(e) {
-        e.preventDefault();
-
-        var target = $(e.target);
-
-        var data = target.serializeArray().reduce(function(obj, item) {
-          obj[item.name] = item.value;
-          return obj;
-        }, {});
-
-        $.ajax({
-          url: ("https!!!://?!!formspree?!.i?o/" + address).replace(/[\?,\!]/gi, ""),
-          method: "POST",
-          data: data,
-          dataType: "json",
-          success: function() {
-            target.find('.success-message').show()
-          },
-          error: function() {
-            target.find('.error-message').show()
-          }
-        });
-      });
+  section.content
+    block content

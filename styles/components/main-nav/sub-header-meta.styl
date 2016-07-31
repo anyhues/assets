@@ -1,0 +1,33 @@
+.sub-header .main-nav
+  position relative
+
+.sub-header .meta
+    top auto
+    right 0
+    bottom 1.25rem
+
+    li
+      text-align right
+
+    a
+      color #000
+
+      &:hover
+        background-color link-highlight-color
+        color #fff
+
+
+.content .meta
+  display none
+
++up-to(948px)
+  .sub-header .meta li
+    display none
+
+  .content .meta
+    display block
+
++up-to(bp-large)
+  .sub-header .meta
+    .meta-about-me
+      display none
