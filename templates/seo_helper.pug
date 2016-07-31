@@ -1,0 +1,6 @@
+mixin meta_keywords(...keywords)
+  - var keywords = keywords.join(', ')
+  meta(name="keywords" content=keywords)
+
+mixin meta_description(desc)
+  meta(name="description" content=desc)

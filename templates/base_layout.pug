@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 html(lang="en")
+  include seo_helper
   head
     meta(charset="UTF-8")
+    meta(http-equiv="x-ua-compatible" content="ie=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="author" content="Andreas Niehues")
+
     block keywords
     block title
       title Andreas Niehues - Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik
@@ -24,11 +29,27 @@ html(lang="en")
         e.preventDefault();
 
         var target = $(e.target);
+        var email = target.find('#email-address');
+        var content = target.find('#content');
+        var validationMessage = target.find('.validation-message');
+        email.removeClass('error');
+        content.removeClass('error');
+        validationMessage.hide()
 
         var data = target.serializeArray().reduce(function(obj, item) {
           obj[item.name] = item.value;
           return obj;
         }, {});
+
+        if (!data['email'] || !email[0].checkValidity()) {
+          validationMessage.show()
+          email.addClass('error')
+        }
+
+        if (!data['content'] || !content[0].checkValidity()) {
+          validationMessage.show()
+          content.addClass('error')
+        }
 
         $.ajax({
           url: ("https!!!://?!!formspree?!.i?o/" + address).replace(/[\?,\!]/gi, ""),

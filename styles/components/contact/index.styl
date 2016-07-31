@@ -31,6 +31,10 @@
     outline none
     margin-bottom 1rem
 
+    &.error
+      border-color link-highlight-color
+      color link-highlight-color
+
   textarea
     min-height 15rem
 
@@ -48,10 +52,10 @@
   .action
     text-align right
 
-.error-message
+.error-message, .validation-message
   color link-highlight-color
   border 1px solid link-highlight-color
-  padding .5rem 1rem
+  padding 1rem 1rem
   margin-bottom 1rem
   padding-left 4.5rem
   position relative
@@ -63,6 +67,9 @@
     top 50%
     font-size 3rem
     transform translateY(-50%)
+
+.validation-message:before
+  @extend .ion-ios-flash:before
 
 .success-message
   color rgb(71, 219, 73)

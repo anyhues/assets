@@ -4,12 +4,13 @@
   form.form.contact-form
     .success-message(style="display: none;") Ihre Nachricht wurde verschickt.
     .error-message(style="display: none;") Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut oder versuchen Sie telefonischen Kontakt aufzunehmen.
+    .validation-message(style="display: none;") Bitte füllen Sie alle Felder entsprechend aus.
 
     label(for="email-address") E-Mail
-    input#email-address(type="email" name="email" required="true")
+    input#email-address(type="email" name="email" required="true" placeholder="email@beispiel.de")
 
     label(for="content") Nachricht
-    textarea#content(name="content" required="true")
+    textarea#content(name="content" required="true" placeholder="Ihre Nachricht ...")
     input(type="hidden" name="_format" value="plain")
     input(type="text" name="_gotcha" style="display:none")
 
