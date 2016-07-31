@@ -1,0 +1,11 @@
+extends /sub_layout
+
+block image-teaser
+  picture
+    source(srcset=ASSET_HOST + "/images/family-bg-1380.png" media="(min-width: 1200px)")
+    source(srcset=ASSET_HOST + "/images/family-bg-1024.png" media="(min-width: 640px)")
+    img(src=ASSET_HOST + "/images/family-bg-640.png" alt="")
+
+block central-teaser
+  h1 Einzeltherapie
+  p.sub-title Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik
