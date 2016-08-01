@@ -43,7 +43,7 @@
       font-family JaapokkiRegular, 'Helvetica Neue', Helvetica, Arial, sans-serif
       font-size 2rem
       text-align center
-      padded-text(text-highlight, 1rem)
+      padded-text(text-highlight-black, 1rem)
       line-height 1.9
       padding-top .5rem
 
@@ -65,3 +65,8 @@
       p.sub-title
         font-size 4.5vw
         line-height 2
+
++from(bp-large)
+  .stretched-hero
+    .central-teaser
+      max-width 70%

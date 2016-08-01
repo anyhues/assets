@@ -5,12 +5,16 @@
 // text-highlight = rgba(180, 175, 141, 0.36)
 // text-highlight = rgba(228, 0, 226, 0.36)
 // text-highlight = rgba(228, 0, 0, 0.36)
-text-highlight = rgba(6, 6, 6, 0.36)
-
-text-highlight-dark = saturation(alpha(text-highlight, 1), 90%)
+// text-highlight = rgba(6, 6, 6, 0.36)
 
 link-color = #000
 
 link-highlight-color = rgb(255, 112, 112)
 
 link-color-hover = link-highlight-color
+
+
+text-highlight-black = rgba(6, 6, 6, 0.36)
+text-highlight = alpha(link-highlight-color, 0.75)
+
+text-highlight-dark = alpha(text-highlight, .85)

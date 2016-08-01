@@ -23,7 +23,7 @@ module.exports = {
     return {
       ASSET_HOST: config.get('assetHost'),
       COUPLES_HOST: config.get('couplesHost'),
-      FAMILY_HOST: config.get('couplesHost'),
+      FAMILY_HOST: config.get('familyHost'),
       HOME_HOST: config.get('homeHost'),
       SINGLES_HOST: config.get('singlesHost')
     }
