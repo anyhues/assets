@@ -12,7 +12,10 @@ html(lang="en")
       title Andreas Niehues - Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik
     link(rel='stylesheet' href=ASSET_HOST + "/css/main.css")
 
-    //- block head
+    .script
+      document.createElement( "picture" )
+
+    script(src=ASSET_HOST + "/vendor/picturefill.min.js")
   body
     include cross_link_teaser
     block body
