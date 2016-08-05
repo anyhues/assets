@@ -1,0 +1,32 @@
+.scroll-indicator
+  display block
+  font-size 8rem
+
+  position absolute
+  bottom 3rem
+  left 50%
+  transform translateX(-50%)
+
+  animation scroll-indicator-bounce 1.25s infinite
+
+
+
+
+
+
+  &:before
+    color #fff
+    @extend .ion-ios-arrow-down:before
+
+
+@keyframes scroll-indicator-bounce {
+	 0% {
+		 bottom: 3rem
+	 }
+	 50%   {
+		 bottom: 2.5rem
+	 }
+	 100% {
+		 bottom: 3rem
+	 }
+}
