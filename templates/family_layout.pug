@@ -2,8 +2,10 @@ extends /sub_layout
 
 block image-teaser
   picture
+    <!--[if IE 9]><video style="display: none;"><![endif]-->
     source(srcset=ASSET_HOST + "/images/family-bg-1380.png" media="(min-width: 1200px)")
     source(srcset=ASSET_HOST + "/images/family-bg-1024.png" media="(min-width: 640px)")
+    <!--[if IE 9]></video><![endif]-->
     img(src=ASSET_HOST + "/images/family-bg-640.png" alt="")
 
 block central-teaser
