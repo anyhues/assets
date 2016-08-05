@@ -5,10 +5,10 @@ block body
     include meta_nav
 
     picture
-      | <!--[if IE 9]><video style="display: none;"><![endif]--> 
-      source(srcset=ASSET_HOST + "/images/landing-page-bg-1380.png" media="(min-width: 1200px)") 
-      source(srcset=ASSET_HOST + "/images/landing-page-bg-1024.png" media="(min-width: 640px)") 
-      | <!--[if IE 9]></video><![endif]--> 
+      | <!--[if IE 9]><video style="display: none;"><![endif]-->
+      source(srcset=ASSET_HOST + "/images/landing-page-bg-1380.png" media="(min-width: 1200px)")
+      source(srcset=ASSET_HOST + "/images/landing-page-bg-1024.png" media="(min-width: 640px)")
+      | <!--[if IE 9]></video><![endif]-->
 
       img( src=ASSET_HOST + "/images/landing-page-bg-640.png" alt="")
 
@@ -19,3 +19,5 @@ block body
 
   section.content
     block content
+
+    include shared_info
