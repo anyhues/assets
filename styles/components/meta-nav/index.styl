@@ -12,14 +12,16 @@
     margin-left 1.5rem
 
   a
-    color #fff
     text-decoration none
     padding .5rem 1rem
     border-bottom 0
 
-    &:hover
-      background-color #fff
+    &:link, &:active
       color #000
+      background-color transparent
+
+    // &:hover, &:focus
+    //   border-bottom 1px
 
 +up-to(bp-small)
   .meta
@@ -45,8 +47,10 @@
     display block
 
   a
-    color #000
+    &:link, &:active
+      color #000
+      background-color transparent
 
-    &:hover
+    &:hover, &:focus
       background-color link-highlight-color
       color #fff

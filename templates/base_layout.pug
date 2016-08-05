@@ -31,10 +31,13 @@ html(lang="en")
       $('.contact-form').on('submit', function(e) {
         e.preventDefault();
 
+        var error = false;
         var target = $(e.target);
+        var inputs = target.find('input, textarea');
         var email = target.find('#email-address');
         var content = target.find('#content');
         var validationMessage = target.find('.validation-message');
+        var mailSuffixPattern = new RegExp("^.*?\\.[a-zA-Z]{2,3}$");
         email.removeClass('error');
         content.removeClass('error');
         validationMessage.hide()
@@ -44,15 +47,24 @@ html(lang="en")
           return obj;
         }, {});
 
-        if (!data['email'] || !email[0].checkValidity()) {
-          validationMessage.show()
-          email.addClass('error')
+        if (!data['email'] || !email[0].checkValidity() || !mailSuffixPattern.test(data['email'])) {
+          email.addClass('error');
+          error = true
         }
 
         if (!data['content'] || !content[0].checkValidity()) {
-          validationMessage.show()
-          content.addClass('error')
+          content.addClass('error');
+          error = true
         }
+
+        if (error) {
+          target.find('.success-message').hide();
+          target.find('.error-message').hide();
+          validationMessage.show();
+          return;
+        }
+
+        inputs.attr('disabled', 'disabled');
 
         $.ajax({
           url: ("https!!!://?!!formspree?!.i?o/" + address).replace(/[\?,\!]/gi, ""),
@@ -60,10 +72,17 @@ html(lang="en")
           data: data,
           dataType: "json",
           success: function() {
-            target.find('.success-message').show()
+            inputs.attr('disabled', false);
+            email.val('')
+            content.val('')
+            validationMessage.hide();
+            target.find('.error-message').hide();
+            target.find('.success-message').show();
           },
           error: function() {
-            target.find('.error-message').show()
+            target.find('.success-message').hide();
+            validationMessage.hide();
+            target.find('.error-message').show();
           }
         });
       });
@@ -79,4 +98,12 @@ html(lang="en")
             return false;
           }
         }
+      });
+
+      $('.teaser a').on('touchstart mouseenter', function(e) {
+        $(this).addClass('hover');
+      });
+
+      $('.teaser a').on('touchmove click mouseleave', function(e) {
+        $(this).removeClass('hover');
       });

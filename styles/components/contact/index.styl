@@ -35,6 +35,9 @@
       border-color link-highlight-color
       color link-highlight-color
 
+    &[disabled=disabled]
+      color rgb(213, 213, 213)
+
   textarea
     min-height 15rem
 
@@ -44,10 +47,15 @@
     min-width 30%
     cursor pointer
 
-    &:hover
+    &:link, &:active
+      background-color #fff
+      border 1px solid rgb(209, 209, 209)
+
+    &:hover, &:focus
       background-color link-highlight-color
       border-color link-highlight-color
       color #fff
+
 
   .action
     text-align right
