@@ -16,7 +16,11 @@ html(lang="en")
       document.createElement( "picture" )
 
     script(src=ASSET_HOST + "/vendor/picturefill.min.js")
-  body
+  - bodyClasses = []
+  - bodyClasses.push(ENV+"-environment")
+  - if (DEBUG) { bodyClasses.push("debug") }
+
+  body(class=bodyClasses)
     include cross_link_teaser
     block body
 

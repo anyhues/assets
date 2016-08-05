@@ -25,7 +25,9 @@ module.exports = {
       COUPLES_HOST: config.get('couplesHost'),
       FAMILY_HOST: config.get('familyHost'),
       HOME_HOST: config.get('homeHost'),
-      SINGLES_HOST: config.get('singlesHost')
+      SINGLES_HOST: config.get('singlesHost'),
+      ENV: config.get('env'),
+      DEBUG: config.get('debug')
     }
   }
 }

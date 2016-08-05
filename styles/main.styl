@@ -6,3 +6,31 @@
 @require 'helper/text-helper'
 @require 'globals'
 @require 'components'
+
+.debug.development-environment:after
+  content ''
+  position fixed
+  bottom 0
+  left 50%
+  transform translateX(-50%)
+  height 4rem
+  padding-top .5rem
+  width 20%
+  background-color red
+  text-align center
+
+  +up-to(bp-small)
+    background-color rgb(255, 238, 143)
+    content 'up-to-small'
+
+  +between(bp-small, bp-medium)
+    background-color rgb(206, 255, 143)
+    content 'from-small-to-medium'
+
+  +between(bp-medium, bp-large)
+    background-color rgb(143, 235, 255)
+    content 'from-medium-to-large'
+
+  +from(bp-large)
+    background-color rgb(255, 143, 237)
+    content 'from-large'
