@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-html(lang="en")
+html(lang="de")
   include seo_helper
   head
     meta(charset="UTF-8")
@@ -10,18 +10,19 @@ html(lang="en")
     block keywords
     block title
       title Andreas Niehues - Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik
+
     link(rel='stylesheet' href=ASSET_HOST + "/css/main.css")
 
-    .script
-      document.createElement( "picture" )
-
     script(src=ASSET_HOST + "/vendor/picturefill.min.js")
-  - bodyClasses = []
-  - bodyClasses.push(ENV+"-environment")
-  - if (DEBUG) { bodyClasses.push("debug") }
+    - bodyClasses = []
+    - bodyClasses.push(ENV+"-environment")
+    - if (DEBUG) { bodyClasses.push("debug") }
 
-  body(class=bodyClasses)
+  body#top(class=bodyClasses)
     include cross_link_teaser
+    .scroll-menu
+      a.home(href=HOME_HOST title="home")
+      a.top(href="#top" title="nach oben")
     block body
 
     footer.main-footer
@@ -130,6 +131,7 @@ html(lang="en")
 
         //define arrow opacity as based on how far up the page the user has scrolled
         //no scrolling = 1, half-way up the page = 0
-        $('.scroll-indicator').css('opacity', position);
+        $('.scroll-indicator').css('opacity', Math.max(0, position));
+        $('.scroll-menu').css('opacity', Math.min(1, 1 - position));
 
       });

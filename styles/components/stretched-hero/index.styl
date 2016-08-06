@@ -56,8 +56,12 @@
     left 50%
     transform translate(-50%, -50%)
 
-  .meta a:link, &:active
-      color #fff
+  .meta a:link, .meta a:visited, .meta a:active
+    background-color transparent
+    color #fff
+  .meta a:hover, &:active
+      color #000
+      background-color #fff
 
 +up-to(bp-medium)
   .stretched-hero

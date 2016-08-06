@@ -1,0 +1,36 @@
+.scroll-menu
+  display none
+
++from(bp-large)
+  .scroll-menu
+    display block
+    // background-color #fff
+    opacity 0
+    position fixed
+    top 0
+    right 1%
+    z-index 1999
+
+    .home, .top
+      display block
+      background-color #fff
+      padding .7rem 1rem
+      border none
+
+    .home
+      &:before
+        font-size 3rem
+        @extend .ion-ios-home-outline:before
+
+      &:hover
+        &:before
+          @extend .ion-ios-home:before
+    .top
+      transform rotate(-90deg)
+      &:before
+        font-size 3rem
+        @extend .ion-ios-log-out-outline:before
+
+      &:hover
+        &:before
+          @extend .ion-ios-log-in-outline:before
