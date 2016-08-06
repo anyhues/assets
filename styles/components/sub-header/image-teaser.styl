@@ -9,6 +9,7 @@
   img
     width 100%
     max-width 100%
+    max-height 600px
 
   .central-teaser
     width 50%
@@ -64,3 +65,11 @@
 
       p.sub-title
         font-size 2vw
+
++from(bp-large)
+  .image-teaser .central-teaser.centralized
+    width 80%
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    text-align center
