@@ -1,4 +1,7 @@
-include about_me
-block after_shared_content
-include practice
-include contact
+unless config.get('canonical')
+  include about_me
+  block after_shared_content
+  include practice
+  include contact
+else
+  block after_shared_content
