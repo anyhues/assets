@@ -17,7 +17,7 @@ module.exports = {
       'homeHost': 'http://www.praxis-niehues.de',
       'couplesHost': 'http://www.praxis-niehues.de/paartherapie',
       'familyHost': 'http://www.praxis-niehues.de/familientherapie',
-      'singlesHost': 'http://www.praxis-niehues.de/einzeltherapie',
+      'singlesHost': 'http://www.praxis-niehues.de/psychologische-beratung',
       // 'couplesHost': 'http://www.paartherapeut-essen.de',
       // 'familyHost': 'http://www.familientherapeut-essen.de',
       // 'singlesHost': 'http://www.psychologische-beratung-essen.de',
