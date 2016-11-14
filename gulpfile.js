@@ -22,7 +22,8 @@ gulp.task('deploy', ['dist'], () => {
   gulp.src(config.get('distGlob'))
   .pipe(ghPages({
     remoteUrl: 'git@github.com:niehues-assets/niehues-assets.github.io.git',
-    branch: 'master'
+    branch: 'master',
+    force: false
   }).on('error', gutil.log))
   .pipe(print())
 })

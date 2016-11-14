@@ -1,4 +1,4 @@
-unless config.get('canonical')
+if config.get('canonical')
   include about_me
   block after_shared_content
   include practice

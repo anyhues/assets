@@ -15,9 +15,12 @@ module.exports = {
     production: {
       'assetHost': 'https://niehues-assets.github.io',
       'homeHost': 'http://www.praxis-niehues.de',
-      'couplesHost': 'http://www.paartherapeut-essen.de',
-      'familyHost': 'http://www.familientherapeut-essen.de',
-      'singlesHost': 'http://www.psychologische-beratung-essen.de',
+      'couplesHost': 'http://www.praxis-niehues.de/paartherapie',
+      'familyHost': 'http://www.praxis-niehues.de/familientherapie',
+      'singlesHost': 'http://www.praxis-niehues.de/einzeltherapie',
+      // 'couplesHost': 'http://www.paartherapeut-essen.de',
+      // 'familyHost': 'http://www.familientherapeut-essen.de',
+      // 'singlesHost': 'http://www.psychologische-beratung-essen.de',
       'organisationHost': 'http://www.praxis-niehues.de/organisationen'
     }
   },
