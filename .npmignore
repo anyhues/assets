@@ -6,5 +6,5 @@ tmp/
 fonts/
 images/
 styles/
-vendor/
+foreign/
 gulpfile.js
