@@ -1,7 +1,6 @@
 .contact
   container()
   overflow hidden
-
 .address
   font-style normal
   font-size 1.5rem
@@ -10,13 +9,25 @@
     margin-bottom .3rem
     line-height 1.5
 
-  h3
-    font-family open_sansregular, 'Helvetica Neue', Helvetica, arial, sans-serif
-    font-size 1.5rem
-    margin-bottom .5rem
+  // h3
+  //   font-family open_sansregular, 'Helvetica Neue', Helvetica, arial, sans-serif
+  //   font-size 1.5rem
+  //   margin-bottom .5rem
+  //
+  //   &:first-of-type
+  //     padding-top 0
 
-    &:first-of-type
-      padding-top 0
+.form.disabled
+  label, input:disabled, textarea:disabled
+    color rgb(217, 217, 217)
+    border-color rgb(217, 217, 217)
+    cursor wait
+
+  input[type=submit]:disabled
+    color rgb(217, 217, 217)
+    border-color rgb(217, 217, 217)
+    background-color #fff
+    cursor wait
 
 .form
   label
@@ -60,40 +71,46 @@
   .action
     text-align right
 
-.error-message, .validation-message
-  color link-highlight-color
-  border 1px solid link-highlight-color
+.form-message
   padding 1rem 1rem
   margin-bottom 1rem
   padding-left 4.5rem
   position relative
 
   &:before
-    @extend .ion-ios-bug:before
     position absolute
     left 1rem
     top 50%
     font-size 3rem
     transform translateY(-50%)
 
+
+.error-message, .validation-message
+  @extend .form-message
+  color link-highlight-color
+  border 1px solid link-highlight-color
+
+  &:before
+    @extend .ion-ios-bug:before
+
 .validation-message:before
   @extend .ion-ios-flash:before
 
 .success-message
+  @extend .form-message
   color rgb(71, 219, 73)
   border 1px solid rgb(71, 219, 73)
-  padding 1rem 1rem
-  margin-bottom 1rem
-  padding-left 4rem
-  position relative
 
   &:before
     @extend .ion-ios-paper-plane:before
-    position absolute
-    left 1rem
-    top 50%
-    font-size 2rem
-    transform translateY(-50%)
+
+.loading-message
+  @extend .form-message
+  color rgb(201, 201, 201)
+  border 1px solid rgb(201, 201, 201)
+
+  &:before
+    @extend .ion-md-lock:before
 
 
 

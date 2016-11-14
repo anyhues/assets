@@ -6,14 +6,19 @@
 
 
     .background
-      :markdown-it
-        ### Mein Hintergrund
+      picture
+        //- source(srcset=ASSET_HOST + "/images/landing-page-half-bg-1380.png" media="(min-width: 1200px)")
+        //- source(srcset=ASSET_HOST + "/images/landing-page-half-bg-1024.png" media="(min-width: 640px)")
+        img(src=ASSET_HOST + "/images/profile.png" alt="")
+      .background-content
+        :markdown-it
+          ### Mein Hintergrund
 
-        * seit 2010 als *Paar- und Familientherapeut* angestellt bei der Christlichen Sozialhilfe Köln-Mülheim e.V.
-        * *Fortbildner* im Bereich kindliche Sexualentwicklung ,  Kindeswohlgefährdung und Jugendsexualität
-        * langjährig hauptamtlich tätig als *Sexualpädagoge* und *Berater* in der Aidsberatung des Caritasverbandes der Stadt Essen und der Schwangerenberatung des Caritasverbandes für die Stadt Recklinghausen e.V.
-        * *Dozent* an der *Krankenpflegeschule* der Kliniken Essen Mitten
-        * mehrere Jahre Berufserfahrung auch in der freien Wirtschaft u.a. in der Reisebranche
+          * seit 2010 als *Paar- und Familientherapeut* angestellt bei der Christlichen Sozialhilfe Köln-Mülheim e.V.
+          * *Fortbildner* im Bereich kindliche Sexualentwicklung ,  Kindeswohlgefährdung und Jugendsexualität
+          * langjährig hauptamtlich tätig als *Sexualpädagoge* und *Berater* in der Aidsberatung des Caritasverbandes der Stadt Essen und der Schwangerenberatung des Caritasverbandes für die Stadt Recklinghausen e.V.
+          * *Dozent* an der *Krankenpflegeschule* der Kliniken Essen Mitten
+          * mehrere Jahre Berufserfahrung auch in der freien Wirtschaft u.a. in der Reisebranche
 
     .references
       .reference-list

@@ -13,7 +13,7 @@ html(lang="de")
 
     link(rel='stylesheet' href=ASSET_HOST + "/css/main.css")
 
-    script(src=ASSET_HOST + "/vendor/picturefill.min.js")
+    script(src=ASSET_HOST + "/vendor/picturefill.min.js" async)
     - bodyClasses = []
     - bodyClasses.push(ENV+"-environment")
     - if (DEBUG) { bodyClasses.push("debug") }
@@ -30,123 +30,134 @@ html(lang="de")
 
     script(src="https://code.jquery.com/jquery-3.1.0.min.js")
     script.
-      var host = "pra!?x!is" + "!!-nie!!" + "!hues??" + ".??de"
-      var user = "!i!n?f?o"
-      var address = user+"@"+host
+      $(document).ready(function() {
+        var host = "pra!?x!is" + "!!-nie!!" + "!hues??" + ".??de"
+        var user = "!i!n?f?o"
+        var address = user+"@"+host
+        var contactForm = $('.contact-form')
 
-      $('.contact-form').on('submit', function(e) {
-        e.preventDefault();
+        contactForm.removeClass('disabled')
+        .find(':disabled').attr('disabled', false)
+        contactForm.find('.loading-message').remove()
 
-        var error = false;
-        var target = $(e.target);
-        var inputs = target.find('input, textarea');
-        var email = target.find('#email-address');
-        var content = target.find('#content');
-        var validationMessage = target.find('.validation-message');
-        var mailSuffixPattern = new RegExp("^.*?\\.[a-zA-Z]{2,3}$");
-        email.removeClass('error');
-        content.removeClass('error');
-        validationMessage.hide()
+        contactForm.on('submit', function(e) {
+          e.preventDefault();
 
-        var data = target.serializeArray().reduce(function(obj, item) {
-          obj[item.name] = item.value;
-          return obj;
-        }, {});
+          var error = false;
+          var target = $(e.target);
+          var inputs = target.find('input, textarea');
+          var email = target.find('#email-address');
+          var content = target.find('#content');
+          var validationMessage = target.find('.validation-message');
+          var mailSuffixPattern = new RegExp("^.*?\\.[a-zA-Z]{2,3}$");
+          email.removeClass('error');
+          content.removeClass('error');
+          validationMessage.hide()
 
-        if (!data['email'] || !email[0].checkValidity() || !mailSuffixPattern.test(data['email'])) {
-          email.addClass('error');
-          error = true
-        }
+          var data = target.serializeArray().reduce(function(obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+          }, {});
 
-        if (!data['content'] || !content[0].checkValidity()) {
-          content.addClass('error');
-          error = true
-        }
+          if (!data['email'] || !email[0].checkValidity() || !mailSuffixPattern.test(data['email'])) {
+            email.addClass('error');
+            error = true
+          }
 
-        if (error) {
-          target.find('.success-message').hide();
-          target.find('.error-message').hide();
-          validationMessage.show();
-          return;
-        }
+          if (!data['content'] || !content[0].checkValidity()) {
+            content.addClass('error');
+            error = true
+          }
 
-        inputs.attr('disabled', 'disabled');
-
-        $.ajax({
-          url: ("https!!!://?!!formspree?!.i?o/" + address).replace(/[\?,\!]/gi, ""),
-          method: "POST",
-          data: data,
-          dataType: "json",
-          success: function() {
-            inputs.attr('disabled', false);
-            email.val('')
-            content.val('')
-            validationMessage.hide();
-            target.find('.error-message').hide();
-            target.find('.success-message').show();
-          },
-          error: function() {
+          if (error) {
             target.find('.success-message').hide();
-            validationMessage.hide();
-            target.find('.error-message').show();
+            target.find('.error-message').hide();
+            validationMessage.show();
+            return;
+          }
+
+          target.addClass('disabled')
+          inputs.attr('disabled', 'disabled');
+
+          $.ajax({
+            url: ("https!!!://?!!formspree?!.i?o/" + address).replace(/[\?,\!]/gi, ""),
+            method: "POST",
+            data: data,
+            dataType: "json",
+            success: function() {
+              inputs.attr('disabled', false);
+              email.val('')
+              content.val('')
+              validationMessage.hide();
+              target.find('.error-message').hide();
+              target.find('.success-message').show();
+              target.removeClass('disabled')
+            },
+            error: function() {
+              inputs.attr('disabled', false);
+              target.removeClass('disabled')
+              target.find('.success-message').hide();
+              validationMessage.hide();
+              target.find('.error-message').show();
+            }
+          });
+        });
+
+        $('a[href*="#"]:not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html, body').animate({
+                scrollTop: target.offset().top
+              }, 1000);
+              return false;
+            }
           }
         });
-      });
 
-      $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html, body').animate({
-              scrollTop: target.offset().top
-            }, 1000);
-            return false;
-          }
-        }
-      });
+        $('.teaser a').on('touchstart mouseenter', function(e) {
+          $(this).addClass('hover');
+        });
 
-      $('.teaser a').on('touchstart mouseenter', function(e) {
-        $(this).addClass('hover');
-      });
+        $('.teaser a').on('touchmove click mouseleave', function(e) {
+          $(this).removeClass('hover');
+        });
 
-      $('.teaser a').on('touchmove click mouseleave', function(e) {
-        $(this).removeClass('hover');
-      });
+        $(window).scroll( function(){
 
-      $(window).scroll( function(){
+          //get scroll position
+          var topWindow = $(window).scrollTop();
+          //multipl by 1.5 so the arrow will become transparent half-way up the page
+          //- var topWindow = topWindow;
 
-        //get scroll position
-        var topWindow = $(window).scrollTop();
-        //multipl by 1.5 so the arrow will become transparent half-way up the page
-        //- var topWindow = topWindow;
+          //get height of window
+          var windowHeight = $(window).height();
 
-        //get height of window
-        var windowHeight = $(window).height();
+          //set position as percentage of how far the user has scrolled
+          var position = topWindow / windowHeight;
+          //invert the percentage
+          position = 1 - position;
 
-        //set position as percentage of how far the user has scrolled
-        var position = topWindow / windowHeight;
-        //invert the percentage
-        position = 1 - position;
+          //define arrow opacity as based on how far up the page the user has scrolled
+          //no scrolling = 1, half-way up the page = 0
+          $('.scroll-indicator').css('opacity', Math.max(0, position));
+          $('.scroll-menu').css('opacity', Math.min(1, 1 - position));
 
-        //define arrow opacity as based on how far up the page the user has scrolled
-        //no scrolling = 1, half-way up the page = 0
-        $('.scroll-indicator').css('opacity', Math.max(0, position));
-        $('.scroll-menu').css('opacity', Math.min(1, 1 - position));
+        });
 
-      });
+        $('.map-link').on('click', function(e) {
+          e.preventDefault();
 
-      $('.map-link').on('click', function(e) {
-        e.preventDefault();
+          if ((navigator.platform.indexOf("iPhone") != -1)
+            || (navigator.platform.indexOf("iPod") != -1)
+            || (navigator.platform.indexOf("iPad") != -1)
+            || (navigator.platform.indexOf("MacIntel") != -1)) {
+           window.open("maps://maps.google.com/maps?daddr=Planckstra%C3%9Fe+115,+45147+Essen&amp;ll=");
+         } else {
+           window.open("http://maps.google.com/maps?daddr=Planckstra%C3%9Fe+115,+45147+Essen&amp;ll=");
+         }
+        });
 
-        if ((navigator.platform.indexOf("iPhone") != -1)
-          || (navigator.platform.indexOf("iPod") != -1)
-          || (navigator.platform.indexOf("iPad") != -1)
-          || (navigator.platform.indexOf("MacIntel") != -1)) {
-         window.open("maps://maps.google.com/maps?daddr=Planckstra%C3%9Fe+115,+45147+Essen&amp;ll=");
-       } else {
-         window.open("http://maps.google.com/maps?daddr=Planckstra%C3%9Fe+115,+45147+Essen&amp;ll=");
-       }
-      });
-
+      })
     block scripts

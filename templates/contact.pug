@@ -1,30 +1,35 @@
 .contact.area#contact
   h2 Kontakt
 
-  form.form.contact-form
+  form.form.contact-form.disabled
+    .loading-message Das Formular wird vorbereitet.
     .success-message(style="display: none;") Ihre Nachricht wurde verschickt.
     .error-message(style="display: none;") Es ist ein unbekannter Fehler aufgetreten, bitte versuchen Sie es erneut oder versuchen Sie telefonischen Kontakt aufzunehmen.
     .validation-message(style="display: none;") Bitte füllen Sie alle Felder entsprechend aus.
 
     label(for="email-address") E-Mail
-    input#email-address(type="email" name="email" placeholder="email@beispiel.de")
+    input#email-address(type="email" name="email" placeholder="email@beispiel.de" disabled="disabled")
 
     label(for="content") Nachricht
-    textarea#content(name="content" placeholder="Ihre Nachricht ...")
+    textarea#content(name="content" placeholder="Ihre Nachricht ..." disabled="disabled")
     input(type="hidden" name="_format" value="plain")
     input(type="text" name="_gotcha" style="display:none")
 
     .action
-      input.contact-submit(type="submit" value="Absenden")
+      input.contact-submit(type="submit" value="Absenden" disabled="disabled")
 
-  address.address
+  address.address(itemscope itemtype='http://schema.org/LocalBusiness')
     h3 Anschrift
-    p.name Systemisch-integrative Praxis
-    p.street Planckstraße 115
-    p.city 45147 Essen-Holsterhausen
+    div(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
+      p.name(itemprop="name") Systemisch-integrative Praxis
+      p.street(itemprop="streetAddress") Planckstraße 115
+      p.city
+        span(itemprop="postalCode") 45147
+        = ' '
+        span(itemprop="addressLocality") Essen Holsterhausen
 
     h3 Telefon
-    a.tellink(href="tel:+4920117541275") 0201 175 412 75
+    a.tellink(href="tel:+4920117541275" itemprop="telephone") 0201 175 412 75
     br
     br
-    a.map-link Anfahrt
+    a.map-link(itemprop="hasMap" href="http://maps.google.com/maps?daddr=Planckstra%C3%9Fe+115,+45147+Essen&amp;ll=") Anfahrt
