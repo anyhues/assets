@@ -21,6 +21,7 @@
     "README.md",
     "LICENSE.md",
     "index.js",
+    "rev-manifest.json",
     "lib/",
     "templates/",
     "images/favicons/favicon.ico"
