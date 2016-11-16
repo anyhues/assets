@@ -17,6 +17,14 @@
     "gulp-gzip": "^1.4.0",
     "standard": "^7.1.2"
   },
+  "files": [
+    "README.md",
+    "LICENSE.md",
+    "index.js",
+    "lib/",
+    "templates/",
+    "images/favicons/favicon.ico"
+  ]
   "dependencies": {
     "convict": "^1.4.0",
     "del": "^2.2.1",
