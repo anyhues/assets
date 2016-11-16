@@ -24,7 +24,7 @@
     "lib/",
     "templates/",
     "images/favicons/favicon.ico"
-  ]
+  ],
   "dependencies": {
     "convict": "^1.4.0",
     "del": "^2.2.1",
