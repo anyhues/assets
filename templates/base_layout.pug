@@ -7,6 +7,17 @@ html(lang="de")
     meta(name="viewport" content="width=device-width, initial-scale=1")
     meta(name="author" content="Andreas Niehues")
 
+    link(rel='apple-touch-icon-precomposed' href=ASSET_HOST + '/images/favicons/favicon-152.png')
+    meta(name="msapplication-TileColor" content="#FFFFFF")
+    meta(name="msapplication-TileImage" content=ASSET_HOST + '/images/favicons/favicon-144.png')
+
+    meta(name="application-name" content="Name")
+    meta(name="msapplication-tooltip" content="Tooltip")
+    meta(name="msapplication-config" content=ASSET_HOST + '/images/favicons/ieconfig.xml')
+
+    for size in [32,57,76,96,120,128,144,152,180,195,196,228]
+      link(rel="icon" href=ASSET_HOST + "/images/favicons/favicon-" + size + ".png" sizes=size+"x"+size)
+
     block seo
     block title
       title Andreas Niehues - Systemisch integrative Praxis für Paar- und Familientherapie, Coaching und psychologische Beratung, Sexualberatung und Sexualpädagogik

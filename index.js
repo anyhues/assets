@@ -3,6 +3,7 @@ const path = require('path')
 module.exports = {
   templatePath: path.resolve(__dirname, 'templates'),
   revManifest: path.resolve(__dirname, 'rev-manifest.json'),
+  favIcon: path.resolve(__dirname, 'images/favicons/favicon.ico'),
   configs: {
     development: {
       'assetHost': 'http://localhost:8235',

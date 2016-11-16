@@ -5,6 +5,7 @@ tmp/
 .publish/
 fonts/
 images/
+!images/favicons/favicon.ico
 styles/
 foreign/
 gulpfile.js

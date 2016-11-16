@@ -19,7 +19,7 @@ tasks.forEach(service => service.load(gulp, config))
 gulp.task('run', sequence(['watch']))
 
 gulp.task('deploy', ['dist'], () => {
-  gulp.src(config.get('distGlob'))
+  gulp.src([config.get('distGlob')])
   .pipe(ghPages({
     remoteUrl: 'git@github.com:niehues-assets/niehues-assets.github.io.git',
     branch: 'master',
