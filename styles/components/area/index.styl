@@ -26,3 +26,32 @@
     li, p
       font-size 4vw
       line-height 1.6
+
+.area.corona-hint
+  position relative
+  border-left 5px solid #F83326
+
+  padding .5rem 1rem .5rem 2.5rem
+
+  &:before
+    position absolute
+    left 0
+    top .3em
+    width 1.5rem
+    height 1.5rem
+    padding-left .5rem
+    display block
+    @extend .ion-ios-alert:before
+    font-size 1.8rem
+    color #F83326
+
+  p
+    font-size 1.2rem
+    line-height 1.5
+    margin-bottom .875rem
+    &:last-of-type
+      margin 0
+
+    &.big
+      font-family open_sansbold
+      font-weight 900
